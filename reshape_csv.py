@@ -27,11 +27,11 @@ for battery_id, group in meta_df.groupby("battery_id"):
                 df['cycle_idx'] = cycle_idx  # 각 파일에 cycle_idx 추가
                 merged_df = pd.concat([merged_df, df], ignore_index=True)
             except Exception as e:
-                print(f"⚠️ 파일 {filename} 로딩 실패: {e}")
+                print(f"파일 {filename} 로딩 실패: {e}")
         else:
-            print(f"⚠️ 파일 없음: {filename}")
+            print(f"파일 없음: {filename}")
 
     # 통합된 결과를 battery_id.csv로 저장
     output_path = os.path.join(output_dir, f"{battery_id}.csv")
     merged_df.to_csv(output_path, index=False)
-    print(f"✅ 저장 완료: {output_path}")
+    print(f"저장 완료: {output_path}")

@@ -15,7 +15,7 @@ output_dir = f"./images/{battery_id}"
 
 # 컬러맵 준비 (녹색 → 노랑 → 빨강)
 norm = mcolors.Normalize(vmin=df['cycle_idx'].min(), vmax=df['cycle_idx'].max())
-cmap = cm._colormaps['RdYlGn_r']  # ✅ 최신 방식
+cmap = cm._colormaps['RdYlGn_r']  # 최신 방식
 
 # 컬럼별 그래프
 for col in measure_cols:
@@ -30,7 +30,7 @@ for col in measure_cols:
     sm = plt.cm.ScalarMappable(cmap=cmap, norm=norm)
     sm.set_array([])
 
-    # ✅ colorbar에 ax 명시
+    # colorbar에 ax 명시
     plt.colorbar(sm, ax=ax, label='Cycle Index')
     ax.grid(True)
     plt.tight_layout()
